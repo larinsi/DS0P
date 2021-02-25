@@ -1,5 +1,5 @@
 *.pdf
 *.pptx
 *.zip
-15.1_README.md
-kiva/
+Data_scientist/Module_1.17/15.1_README.md
+Data_Scientist/kiva/
