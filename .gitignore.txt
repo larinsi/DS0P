@@ -3,3 +3,4 @@
 *.zip
 Data_scientist/Module_1.17/15.1_README.md
 Data_Scientist/kiva/
+*.csv
