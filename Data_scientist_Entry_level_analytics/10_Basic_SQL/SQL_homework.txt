@@ -4,19 +4,19 @@
 1. Написать запрос для выбора студентов в порядке их регистрации на сервисе.
 
 
-### Напишите Ваш запрос здесь ### 
+SELECT * FROM Students ORDER BY registration_date;
 
 
 2. Написать запрос для выбора 5 самых дорогих курсов, на которых более 4 студентов, и которые длятся более 10 часов.
 
 
-### Напишите Ваш запрос здесь ###
+SELECT * FROM Courses WHERE students_count > 4 and duration > 10 ORDER BY price DESC LIMIT 5;
 
 
 3. Написать один (!) запрос, который выведет одновременно список из имен трёх самых молодых студентов, имен трёх самых старых учителей и названий трёх самых продолжительных курсов.
 
 
-### Напишите Ваш запрос здесь ###
+(SELECT name FROM Students ORDER BY age ASC limit 3) UNION (SELECT name FROM Teachers ORDER BY age DESC limit 3) UNION (SELECT name FROM Courses ORDER BY duration DESC limit 3)
 
 
 Домашнее задание к уроку 17.4:
