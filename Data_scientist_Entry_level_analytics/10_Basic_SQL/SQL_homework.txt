@@ -47,19 +47,24 @@ SELECT SUM(duration) * 60 FROM Courses WHERE type = "PROGRAMMING";
 1. Напишите запрос, который выводит сумму, сколько часов должен в итоге проучиться каждый студент (сумма длительности всех курсов на которые он подписан). В результате запрос возвращает две колонки: Имя Студента — Кол-во часов.
 
 
-### Напишите Ваш запрос здесь ###
+SELECT Students.name AS student_name, SUM(Courses.duration) AS study_duration FROM Courses JOIN Subscriptions ON Courses.id = Subscriptions.course_id JOIN Students ON Students.id = Subscriptions.student_id GROUP BY Students.name;
 
 
 2. Напишите запрос, который посчитает для каждого учителя средний возраст его учеников.
 В результате запрос возвращает две колонки: Имя Учителя — Средний Возраст Учеников.
 
 
-### Напишите Ваш запрос здесь ###
+SELECT Teachers.name AS teacher_name, AVG(Students.age) AS average_students_age FROM Teachers JOIN Courses ON Teachers.id = Courses.teacher_id JOIN Subscriptions ON Courses.id = Subscriptions.course_id JOIN Students ON Students.id = Subscriptions.student_id GROUP BY Teachers.name;
 
 
 3. Напишите запрос, который выводит среднюю зарплату учителей для каждого типа курса (Дизайн/Программирование/Маркетинг и т.д.) В результате запрос возвращает две колонки: Тип Курса – Средняя зарплата.
 
 
-### Напишите Ваш запрос здесь ###
+SELECT Courses.type AS course_type,
+    -> AVG(Teachers.salary) AS average_teacher_salary
+    -> FROM Courses
+    -> JOIN Teachers ON Teachers.id = Courses.teacher_id
+    -> GROUP BY Courses.type;
+
 
 
