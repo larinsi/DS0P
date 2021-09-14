@@ -75,3 +75,12 @@ names(coffee)
 
 * если имя респондента есть в векторе ключей, выводит на экран число чашек кофе, которое он(а) выпивает в среднем в день;
 * если имя респондента отсутствует в векторе, выводит на экран сообщение: "No such respondents".
+```{r}
+resp <- "Sergey"
+if (resp %in% names(coffee)){
+  print(coffee[resp])
+} else {
+  print("No such respondents.")
+}
+```
+
