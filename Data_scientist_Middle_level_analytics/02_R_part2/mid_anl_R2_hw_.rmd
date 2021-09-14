@@ -1,18 +1,28 @@
 ---
-title: "R Notebook"
+title: "Домашняя работа. Модуль 2."
 output: html_notebook
 ---
+## Задание 1
+В переменной `belki` сохранено число очков у команды "Белки", в переменной `strelki` сохранено число очков у команды "Стрелки".
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
+Напишите код, который сравнивает значения переменных и:
+* если число очков у первой команды больше, чем у второй, выводит сообщение "Победила команда БЕЛКИ!"
+* если число очков у второй команды больше, чем у первой, выводит на экран сообщение "Победила команда СТРЕЛКИ!"
+* если обе команды набрали одинаковое число очков, выводится сообщение "Победила дружба!".
 ```{r}
-plot(cars)
+belki <- 23
+strelki <- 32
+if (belki > strelki){
+  print("Победила команда БЕЛКИ!")
+} else {
+  if (strelki > belki){
+    print("Победила команда СТРЕЛКИ!")
+  } else {
+    print("Победила дружба!")
+  }
+}
+  
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
-
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
