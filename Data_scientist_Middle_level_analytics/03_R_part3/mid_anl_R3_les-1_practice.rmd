@@ -16,6 +16,12 @@ header-includes:
 
 * `Cars.csv`;
 * `Cars.xlsx`.
+```{r}
+df1 <- read.csv(choose.files())
+library(readxl)
+df2 <- read_excel("3.1_Data/data/Cars.xlsx")
+```
+
 
 2. Загрузите в R третий лист из файла `Test.xlsx` и сохраните данные из него в датафрейм `test`. Посмотрите на загруженный датафрейм.
 
