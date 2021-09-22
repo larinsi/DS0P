@@ -30,4 +30,16 @@ tit %>% group_by(sex) %>% summarise(mean_age = mean(age))
 
 
 3. Сгруппируйте данные по классам (`pclass`) и посчитайте число пассажиров женского и мужского пола среди пассажиров каждого класса. Посчитайте процент пассажиров женского и мужского пола среди пассажиров каждого класса. 
+```{r}
+tit$female <- as.integer(tit$sex == "female")
+
+tit %>% group_by(pclass) %>% tally
+
+tit %>% group_by(pclass) %>% summarise(n_female = sum(female),
+                                       n_male = length(female) - sum(female))
+
+tit %>% group_by(pclass) %>% summarise(n_female = sum(female) / length(female) * 100, 
+                                       n_male = (length(female) - sum(female)) / length(female) * 100)
+```
+
 
