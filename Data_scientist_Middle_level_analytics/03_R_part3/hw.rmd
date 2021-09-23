@@ -95,6 +95,15 @@ dev.off()
 * Преобладают значения от 5% до 15%.
 
 9. Выполните предыдущий пункт, но уже используя средства библиотеки `tidyverse` (графика с `ggplot2`).
+```{r}
+LSTAT_plot <- ggplot(data = housing, aes(x = LSTAT)) +
+  geom_histogram(binwidth = 3, fill = "skyblue", color = "navy") +
+  labs(title = "Гистограмма показателя LSTAT",
+       x = "LSTAT",
+       y = "Число объектов")
+ggsave("LSTAT_hist.png", plot = LSTAT_plot)
+```
+
 
 ### Задание 2
 
