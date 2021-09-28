@@ -22,3 +22,5 @@ rename_files.ipynb
 *.pkl
 *.png
 *.html
+.RData
+.Rhistory
