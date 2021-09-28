@@ -15,19 +15,37 @@ ui <- fluidPage(
     # Application title
     titlePanel("Titanic Passengers"),
 
-    # Row with 2 selectInputs 
+    # Row with 2 selectInputs for choosing params
     fluidRow(column(6,
                     selectInput("strparam",
-                                "Barplot",
+                                "Barplot:",
                                 c(`Survived` = "Survived",
                                   `Class` = "PClass",
                                   `Sex` = "Sex"))),
              column(6,
                     selectInput("numparam",
-                                "Histplot",
+                                "Histplot:",
                                 c("Age",
                                   "Fare")))
-    )
+    ),
+    
+    # Row with 2 selectInputs for choosing colors
+    fluidRow(column(6,
+                    selectInput("color1",
+                                "Color 1:",
+                                c(`Violet` = "violet",
+                                  `Dark orchid` = "darkorchid",
+                                  `Green yellow` = "greenyellow",
+                                  `Light pink` = "lightpink"))),
+             column(6,
+                    selectInput("color2",
+                                "Color 2:",
+                                c(`Fire brick` = "firebrick2",
+                                  `Khaki` = "khaki1",
+                                  `Magenta` = "magenta",
+                                  `Purple` = "purple2"))),
+             
+             )
 )
 
 # Define server logic required to draw a histogram
