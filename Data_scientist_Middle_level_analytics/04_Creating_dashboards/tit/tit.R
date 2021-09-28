@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+tit <- read.csv("Titanic.csv")
 
 
 ui <- fluidPage(
@@ -20,7 +21,7 @@ ui <- fluidPage(
                     selectInput("strparam",
                                 "Barplot:",
                                 c(`Survived` = "Survived",
-                                  `Class` = "PClass",
+                                  `Class` = "Pclass",
                                   `Sex` = "Sex"))),
              column(6,
                     selectInput("numparam",
@@ -45,19 +46,35 @@ ui <- fluidPage(
                                   `Magenta` = "magenta",
                                   `Purple` = "purple2"))),
              
-             )
+             ),
+    
+    fluidRow(splitLayout(cellWidths = c("50%", "50%"),
+                         plotOutput("barplot"),
+                         plotOutput("histplot")))
 )
 
-# Define server logic required to draw a histogram
+# Define server logic required to draw a graphics
 server <- function(input, output) {
+    
+    dat <- tit
 
-    output$distPlot <- renderPlot({
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    output$histplot <- renderPlot({
+        x <- dat[, input$numparam]
 
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
+        hist(x, 
+             col = input$color2, 
+             border = 'black', 
+             xlab = input$numparam,
+             main = "")
+    })
+    
+    output$barplot <- renderPlot({
+        x <- dat[, input$strparam]
+        
+        barplot(table(x),
+                col = input$color1,
+                border = "black",
+                xlab = input$strparam)
     })
 }
 
