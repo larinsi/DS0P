@@ -1,6 +1,8 @@
 ---
 title: "Lesson 4 practice"
-output: html_notebook
+output:
+  word_document: default
+  html_notebook: default
 ---
 Файл conversion.csv содержит данные для AB-тестирования, проводимого с целью понять, приводит ли переход к новому типу меню к увеличению конверсии сайта.
 
@@ -16,10 +18,14 @@ output: html_notebook
 dat <- read.csv("conversion.csv")
 old <- dat$OLD
 new <- dat$NEW
+p_old <- mean(old)
+p_new <- mean(new)
+p_new - p_old
 
 N <- 1500
 
-set.seed(1234)
+set.seed(12)
+
 differences <- rep(NA, N)
 for (i in 1:N){
   s1 <- sample(old, replace = TRUE)
@@ -30,12 +36,15 @@ for (i in 1:N){
   differences[i] <- p_diff
 }
 
-p_value <- sum(differences > 0) / N
 
-hist(differences)
-abline(v = 0, col = "red")
+library(tidyverse)
+diff_df <- data.frame(dif = differences)
+ggplot(data = diff_df, aes(x = dif)) + geom_histogram(fill = "lightblue", color = "navy") +
+  geom_vline(xintercept = 0.6325, color = "red", lty = 2)
 ```
 ```{r}
 
 ```
 
+
+Все ведет [сюда](https://vk.com/a__gavrilov)
