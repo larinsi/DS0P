@@ -1,0 +1,11 @@
+---
+title: "Lesson 4 practice"
+output: html_notebook
+---
+
+
+
+```{r}
+plot(cars)
+```
+
