@@ -24,3 +24,4 @@ rename_files.ipynb
 *.html
 .RData
 .Rhistory
+*.npy
