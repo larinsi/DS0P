@@ -25,3 +25,6 @@ rename_files.ipynb
 .RData
 .Rhistory
 *.npy
+*.jpg
+*.h5
+*.tar.gz
